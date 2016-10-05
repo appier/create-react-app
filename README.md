@@ -6,7 +6,7 @@ Create React apps with no build configuration.
 * [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
 ## Customization
-[![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=master)](https://travis-ci.org/appier/create-react-app)
+[![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
 [![npm](https://img.shields.io/npm/v/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
  [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
  [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
