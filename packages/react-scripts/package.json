@@ -1,14 +1,14 @@
 {
-  "name": "react-scripts",
+  "name": "react-scripts-appier",
   "version": "0.7.0",
   "description": "Configuration and scripts for Create React App.",
-  "repository": "facebookincubator/create-react-app",
+  "repository": "appier/create-react-app",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/appier/create-react-app/issues"
   },
   "files": [
     ".babelrc",
@@ -58,6 +58,7 @@
     "postcss-loader": "1.0.0",
     "promise": "7.1.1",
     "react-dev-utils": "^0.3.0",
+    "react-hot-loader": "^3.0.0-beta.6",
     "recursive-readdir": "2.1.0",
     "rimraf": "2.5.4",
     "strip-ansi": "3.0.1",
@@ -70,8 +71,17 @@
   },
   "devDependencies": {
     "bundle-deps": "1.0.0",
+    "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
     "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^1.0.0",
+    "redux-duck": "^1.0.1",
+    "redux-thunk": "^2.1.0"
   },
   "optionalDependencies": {
     "fsevents": "1.0.14"
@@ -112,6 +122,7 @@
     "postcss-loader",
     "promise",
     "react-dev-utils",
+    "react-hot-loader",
     "recursive-readdir",
     "rimraf",
     "strip-ansi",

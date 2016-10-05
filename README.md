@@ -5,12 +5,53 @@ Create React apps with no build configuration.
 * [Getting Started](#getting-started) – How to create a new app.
 * [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
+## Customization
+[![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
+[![npm](https://img.shields.io/npm/v/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+ [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+ [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+
+### Enabled Tooling
+* [x] CSS modules. (with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
+
+### Additional Libraries
+* [x] [Redux](https://github.com/reactjs/redux) `^3.6.0`
+* [x] [Redux Thunk](https://github.com/gaearon/redux-thunk) `^2.1.0`
+* [x] [React Router](https://github.com/reactjs/react-router) `^2.8.1`
+* [x] [React Router Redux](https://github.com/reactjs/react-router-redux) `^4.0.6`
+* [x] [Immutable](https://github.com/facebook/immutable-js) `^3.8.1`
+
+### Project Structure
+
+```sh
+src
+ ├── components/
+ ├── containers/
+ ├── middlewares/
+ ├── reducers/
+ ├── index.js
+ ├── index.css
+ └── Routes.js
+```
+
+### Development
+
+```sh
+$ git clone git@github.com:appier/create-react-app.git create-react-app-appier
+$ cd create-react-app-appier
+$ npm install
+$ git remote add upstream git@github.com:facebookincubator/create-react-app.git
+$ git fetch --all --prune --tags
+$ npm start
+```
+
 ## tl;dr
 
 ```sh
 npm install -g create-react-app
 
-create-react-app my-app
+create-react-app my-app --scripts-version react-scripts-appier
 cd my-app/
 npm start
 
@@ -82,7 +123,7 @@ You will see the build errors and lint warnings in the console.
 
 ### `npm test`
 
-Runs the test watcher in an interactive mode.  
+Runs the test watcher in an interactive mode.
 By default, runs tests related to files changes since the last commit.
 
 [Read more about testing.](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
@@ -199,7 +240,7 @@ We are grateful to the authors of existing related projects for their ideas and 
 
 ## Alternatives
 
-If you don’t agree with the choices made in this project, you might want to explore alternatives with different tradeoffs.  
+If you don’t agree with the choices made in this project, you might want to explore alternatives with different tradeoffs.
 Some of the more popular and actively maintained ones are:
 
 * [insin/nwb](https://github.com/insin/nwb)
