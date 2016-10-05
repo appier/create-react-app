@@ -1,4 +1,5 @@
 import { createDuck } from 'redux-duck';
+import { fromJS } from 'immutable';
 
 /**
  * Duck
@@ -30,82 +31,64 @@ export const logout = auth.createAction(LOGOUT);
 /**
  * Reducer
  */
-const initialState = {
+const initialState = fromJS({
   loaded: false,
   loading: false,
-};
+});
 
 const reducer = auth.createReducer({
   [LOAD]: (state, action) => {
-    return {
-      ...state,
-      loaded: false,
-      loading: true,
-    };
+    return state
+      .set('loaded', false)
+      .set('loading', true)
   },
 
   [LOAD_SUCCESS]: (state, action) => {
-    return {
-      ...state,
-      loaded: true,
-      loading: false,
-    };
+    return state
+      .set('loaded', true)
+      .set('loading', false);
   },
 
   [LOAD_FAIL]: (state, action) => {
-    return {
-      ...state,
-      loaded: true,
-      loading: false,
-    };
+    return state
+      .set('loaded', true)
+      .set('loading', false);
   },
 
   [LOGIN]: (state, action) => {
-    return {
-      ...state,
-      loaded: false,
-      loading: true,
-    };
+    return state
+      .set('loaded', false)
+      .set('loading', true)
   },
 
   [LOGIN_SUCCESS]: (state, action) => {
-    return {
-      ...state,
-      loaded: true,
-      loading: false,
-    };
+    return state
+      .set('loaded', true)
+      .set('loading', false);
   },
 
   [LOGIN_FAIL]: (state, action) => {
-    return {
-      ...state,
-      loaded: true,
-      loading: false,
-    };
+    return state
+      .set('loaded', true)
+      .set('loading', false);
   },
 
   [LOGOUT]: (state, action) => {
-    return {
-      ...state,
-      loaded: false,
-      loading: true,
-    };
+    return state
+      .set('loaded', false)
+      .set('loading', true)
   },
 
   [LOGOUT_SUCCESS]: (state, action) => {
-    return {
-      ...state,
-      loaded: true,
-      loading: false,
-    };
+    return state
+      .set('loaded', true)
+      .set('loading', false);
   },
 
   [LOGOUT_FAIL]: (state, action) => {
-    return {
-      ...state,
-      loaded: true,
-      loading: false,
-    };
+    return state
+      .set('loaded', true)
+      .set('loading', false);
   },
 }, initialState);
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
+import { bindActionCreators, compose } from 'redux';
 import classnames from 'classnames/bind';
 import * as AuthActions from 'ducks/auth';
 import logo from './logo.svg';
@@ -38,7 +39,10 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  withRouter,
 )(App);
