@@ -1,5 +1,5 @@
 {
-  "name": "react-scripts",
+  "name": "react-scripts-appier",
   "version": "0.6.1",
   "description": "Configuration and scripts for Create React App.",
   "repository": "appier/create-react-app",
@@ -85,6 +85,7 @@
     "babel-preset-react-app",
     "case-sensitive-paths-webpack-plugin",
     "chalk",
+    "classnames",
     "connect-history-api-fallback",
     "cross-spawn",
     "css-loader",
