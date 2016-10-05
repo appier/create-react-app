@@ -11,7 +11,7 @@ Create React apps with no build configuration.
  [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
  [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
 
-* [ ] [Immutable](https://github.com/facebook/immutable-js/)
+* [x] [Immutable](https://github.com/facebook/immutable-js/)
 * [ ] [Recompose](https://github.com/acdlite/recompose)
 * [x] [Redux](https://github.com/reactjs/redux)
 * [x] [React Router](https://github.com/reactjs/react-router)
