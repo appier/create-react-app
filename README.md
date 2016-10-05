@@ -7,6 +7,8 @@ Create React apps with no build configuration.
 
 ## Customization
 
+* [ ] [Immutable](https://github.com/facebook/immutable-js/)
+* [ ] [Recompose](https://github.com/acdlite/recompose)
 * [x] [Redux](https://github.com/reactjs/redux)
 * [x] [React Router](https://github.com/reactjs/react-router)
 * [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
