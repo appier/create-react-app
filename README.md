@@ -7,7 +7,9 @@ Create React apps with no build configuration.
 
 ## Customization
 
+* [Redux](https://github.com/reactjs/redux)
 * CSS Modules. (with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
+* Hot reloading of components. (React Hot Loader 3)
 
 ## tl;dr
 

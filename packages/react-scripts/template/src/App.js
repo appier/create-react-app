@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import classnames from 'classnames/bind';
+import * as AuthActions from 'ducks/auth';
 import logo from './logo.svg';
 import style from './App.css';
 
@@ -21,4 +24,21 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      auth: bindActionCreators(AuthActions, dispatch),
+    },
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
