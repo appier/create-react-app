@@ -10,7 +10,7 @@ Create React apps with no build configuration.
 [![npm](https://img.shields.io/npm/v/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
  [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
  [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
- 
+
 * [ ] [Immutable](https://github.com/facebook/immutable-js/)
 * [ ] [Recompose](https://github.com/acdlite/recompose)
 * [x] [Redux](https://github.com/reactjs/redux)
@@ -18,6 +18,17 @@ Create React apps with no build configuration.
 * [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
 * [x] CSS modules. (with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
 * [x] Hot reloading of components. (React Hot Loader 3)
+
+### Development
+
+#### Getting Started
+```sh
+$ git clone git@github.com:appier/create-react-app.git
+$ cd create-react-app
+$ git remote add upstream git@github.com:facebookincubator/create-react-app.git
+$ git fetch --all --prune --tags
+$ npm start
+```
 
 ## tl;dr
 
@@ -96,7 +107,7 @@ You will see the build errors and lint warnings in the console.
 
 ### `npm test`
 
-Runs the test watcher in an interactive mode.  
+Runs the test watcher in an interactive mode.
 By default, runs tests related to files changes since the last commit.
 
 [Read more about testing.](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
@@ -213,7 +224,7 @@ We are grateful to the authors of existing related projects for their ideas and 
 
 ## Alternatives
 
-If you don’t agree with the choices made in this project, you might want to explore alternatives with different tradeoffs.  
+If you don’t agree with the choices made in this project, you might want to explore alternatives with different tradeoffs.
 Some of the more popular and actively maintained ones are:
 
 * [insin/nwb](https://github.com/insin/nwb)
