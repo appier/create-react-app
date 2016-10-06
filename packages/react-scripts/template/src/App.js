@@ -9,7 +9,7 @@ import style from './App.css';
 
 const cx = classnames.bind(style);
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className={cx('App')}>
