@@ -13,11 +13,11 @@ Create React apps with no build configuration.
 
 * [x] [Immutable](https://github.com/facebook/immutable-js/)
 * [ ] [Recompose](https://github.com/acdlite/recompose)
-* [x] [Redux](https://github.com/reactjs/redux)
-* [x] [React Router](https://github.com/reactjs/react-router)
-* [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
+* [x] [Redux](https://github.com/reactjs/redux) `^3.6.0`
+* [x] [React Router](https://github.com/reactjs/react-router) `^2.8.1`
+* [x] [React Router Redux](https://github.com/reactjs/react-router-redux) `^4.0.6`
 * [x] CSS modules. (with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
-* [x] Hot reloading of components. (React Hot Loader 3)
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.5`
 
 ### Development
 
