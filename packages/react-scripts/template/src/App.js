@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators, compose } from 'redux';
 import classnames from 'classnames/bind';
-import * as AuthActions from 'ducks/auth';
+import * as AuthActions from './ducks/auth';
 import logo from './logo.svg';
 import style from './App.css';
 
