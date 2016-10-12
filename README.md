@@ -12,19 +12,20 @@ Create React apps with no build configuration.
  [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
 
 * [x] CSS modules. (with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
-* [x] [Immutable](https://github.com/facebook/immutable-js/)
-* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.5`
-* [x] [React Router Redux](https://github.com/reactjs/react-router-redux) `^4.0.6`
-* [x] [React Router](https://github.com/reactjs/react-router) `^2.8.1`
-* [x] [Recompose](https://github.com/acdlite/recompose)
 * [x] [Redux](https://github.com/reactjs/redux) `^3.6.0`
+* [x] [Redux Thunk](https://github.com/gaearon/redux-thunk) `^2.1.0`
+* [x] [Recompose](https://github.com/acdlite/recompose) `^0.20.2`
+* [x] [React Router](https://github.com/reactjs/react-router) `^2.8.1`
+* [x] [React Router Redux](https://github.com/reactjs/react-router-redux) `^4.0.6`
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.5`
+* [x] [Immutable](https://github.com/facebook/immutable-js) `^3.8.1`
 
 ### Development
 
-#### Getting Started
 ```sh
-$ git clone git@github.com:appier/create-react-app.git
-$ cd create-react-app
+$ git clone git@github.com:appier/create-react-app.git create-react-app-appier
+$ cd create-react-app-appier
+$ npm install
 $ git remote add upstream git@github.com:facebookincubator/create-react-app.git
 $ git fetch --all --prune --tags
 $ npm start
