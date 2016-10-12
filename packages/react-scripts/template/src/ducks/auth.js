@@ -10,8 +10,6 @@ const auth = createDuck('auth', 'app-name');
  * Action types
  */
 const LOAD = auth.defineType('LOAD');
-const LOAD_SUCCESS = auth.defineType('LOAD_SUCCESS');
-const LOAD_FAIL = auth.defineType('LOAD_FAIL');
 
 const LOGIN = auth.defineType('LOGIN');
 const LOGIN_SUCCESS = auth.defineType('LOGIN_SUCCESS');
@@ -25,8 +23,28 @@ const LOGOUT_FAIL = auth.defineType('LOGOUT_FAIL');
  * Action creators
  */
 export const load = auth.createAction(LOAD);
-export const login = auth.createAction(LOGIN);
-export const logout = auth.createAction(LOGOUT);
+export const login = () => dispatch => {
+  dispatch(auth.createAction(LOGIN)());
+
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      dispatch(auth.createAction(LOGIN_SUCCESS)());
+    } else {
+      dispatch(auth.createAction(LOGIN_FAIL)());
+    }
+  }, 1000);
+};
+export const logout = () => dispatch => {
+  dispatch(auth.createAction(LOGOUT)());
+
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      dispatch(auth.createAction(LOGOUT_SUCCESS)());
+    } else {
+      dispatch(auth.createAction(LOGOUT_FAIL)());
+    }
+  }, 1000);
+};
 
 /**
  * Reducer
@@ -41,18 +59,6 @@ const reducer = auth.createReducer({
     return state
       .set('loaded', false)
       .set('loading', true)
-  },
-
-  [LOAD_SUCCESS]: (state, action) => {
-    return state
-      .set('loaded', true)
-      .set('loading', false);
-  },
-
-  [LOAD_FAIL]: (state, action) => {
-    return state
-      .set('loaded', true)
-      .set('loading', false);
   },
 
   [LOGIN]: (state, action) => {
