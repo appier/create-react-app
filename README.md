@@ -17,7 +17,7 @@ Create React apps with no build configuration.
 * [x] [Recompose](https://github.com/acdlite/recompose) `^0.20.2`
 * [x] [React Router](https://github.com/reactjs/react-router) `^2.8.1`
 * [x] [React Router Redux](https://github.com/reactjs/react-router-redux) `^4.0.6`
-* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.5`
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
 * [x] [Immutable](https://github.com/facebook/immutable-js) `^3.8.1`
 
 ### Development
