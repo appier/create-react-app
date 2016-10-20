@@ -141,6 +141,7 @@
     "url-loader",
     "webpack",
     "webpack-dev-server",
+    "webpack-manifest-plugin",
     "whatwg-fetch"
   ]
 }
