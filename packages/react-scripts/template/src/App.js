@@ -28,6 +28,9 @@ export const App = props => (
     <p className={cx('App-intro')}>
       To get started, edit <code>src/App.js</code> and save to reload.
     </p>
+    <code>
+      <a href="https://github.com/appier/create-react-app" target="_blank">Appier edition.</a>
+    </code>
   </div>
 );
 
