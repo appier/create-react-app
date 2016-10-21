@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-appier",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Configuration and scripts for Create React App.",
   "repository": "appier/create-react-app",
   "license": "BSD-3-Clause",
@@ -72,6 +72,7 @@
   "devDependencies": {
     "bundle-deps": "1.0.0",
     "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "redux": "^3.6.0",
