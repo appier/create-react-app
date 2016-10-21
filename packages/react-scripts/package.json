@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-appier",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Configuration and scripts for Create React App.",
   "repository": "appier/create-react-app",
   "license": "BSD-3-Clause",
@@ -72,7 +72,12 @@
   "devDependencies": {
     "bundle-deps": "1.0.0",
     "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
     "react": "^15.3.0",
+    "react-addons-shallow-compare": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
     "react-dom": "^15.3.0"
   },
   "optionalDependencies": {
