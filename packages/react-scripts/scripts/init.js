@@ -66,6 +66,16 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
     'install',
     'react',
     'react-dom',
+    'classnames',
+    'immutable',
+    'react-addons-pure-render-mixin',
+    'react-redux',
+    'react-router',
+    'react-router-redux',
+    'redux',
+    'redux-devtools-extension',
+    'redux-duck',
+    'redux-thunk',
     '--save',
     verbose && '--verbose'
   ].filter(function(e) { return e; });
