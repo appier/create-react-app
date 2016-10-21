@@ -4,12 +4,13 @@ import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader';
-import Routes from './routes';
-import createStore from './store'
+import Routes from './Routes';
+import createStore from './reducers/'
 import './index.css';
 
 const store = createStore();
 const history = syncHistoryWithStore(browserHistory, store);
+const containerNode = document.getElementById('root');
 
 ReactDOM.render(
   <AppContainer>
@@ -17,12 +18,12 @@ ReactDOM.render(
       <Routes history={history} />
     </Provider>
   </AppContainer>,
-  document.getElementById('root')
+  containerNode
 );
 
 if (module.hot) {
-  module.hot.accept('./routes', () => {
-    const NextRoutes = require('./routes').default;
+  module.hot.accept('./Routes', () => {
+    const NextRoutes = require('./Routes').default;
 
     ReactDOM.render(
       <AppContainer>
@@ -30,7 +31,7 @@ if (module.hot) {
           <NextRoutes history={history} />
         </Provider>
       </AppContainer>,
-      document.getElementById('root')
+      containerNode
     );
   });
 }

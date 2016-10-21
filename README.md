@@ -14,7 +14,6 @@ Create React apps with no build configuration.
 * [x] CSS modules. (with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
 * [x] [Redux](https://github.com/reactjs/redux) `^3.6.0`
 * [x] [Redux Thunk](https://github.com/gaearon/redux-thunk) `^2.1.0`
-* [x] [Recompose](https://github.com/acdlite/recompose) `^0.20.2`
 * [x] [React Router](https://github.com/reactjs/react-router) `^2.8.1`
 * [x] [React Router Redux](https://github.com/reactjs/react-router-redux) `^4.0.6`
 * [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
