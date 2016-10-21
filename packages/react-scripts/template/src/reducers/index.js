@@ -1,4 +1,5 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { routerReducer } from 'react-router-redux'
 import auth from './auth';
 import middleware from '../middleware/';
@@ -8,9 +9,8 @@ const reducers = combineReducers({
   auth,
 });
 
-const enhancer = compose(
-  applyMiddleware(...middleware),
-  window.devToolsExtension && window.devToolsExtension()
+const enhancer = composeWithDevTools(
+  applyMiddleware(...middleware)
 );
 
 export default function configure(initialState) {
