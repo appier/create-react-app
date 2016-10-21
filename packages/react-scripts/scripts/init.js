@@ -68,7 +68,7 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
     'react-dom',
     'classnames',
     'immutable',
-    'react-addons-pure-render-mixin',
+    'react-addons-shallow-compare',
     'react-redux',
     'react-router',
     'react-router-redux',
