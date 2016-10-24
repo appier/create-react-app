@@ -91,7 +91,9 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      // Fix `react-hot-loader` is missing in the project directory
+      'react-hot-loader': require.resolve('react-hot-loader')
     }
   },
   // @remove-on-eject-begin
