@@ -7,9 +7,9 @@ Create React apps with no build configuration.
 
 ## Customization
 [![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
-[![npm](https://img.shields.io/npm/v/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
- [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
- [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+[![npm](https://img.shields.io/npm/v/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg)](https://www.npmjs.com/package/react-scripts-appier)
 
 ### Enabled Tools
 * [x] [CSS modules](https://github.com/css-modules/css-modules). (along with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
