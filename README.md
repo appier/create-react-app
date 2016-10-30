@@ -5,6 +5,34 @@ Create React apps with no build configuration.
 * [Getting Started](#getting-started) – How to create a new app.
 * [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
+## Customization
+[![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
+[![npm](https://img.shields.io/npm/v/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+ [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+ [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg?maxAge=2592000)](https://www.npmjs.com/package/react-scripts-appier)
+
+### Enabled Tools
+* [x] [CSS modules](https://github.com/css-modules/css-modules). (along with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
+
+### Included Libraries 
+* [x] [Redux](https://github.com/reactjs/redux)
+* [x] [Redux Thunk](https://github.com/gaearon/redux-thunk)
+* [x] [React Router](https://github.com/reactjs/react-router)
+* [x] [React Router Redux](https://github.com/reactjs/react-router-redux) 
+* [x] [Immutable](https://github.com/facebook/immutable-js)
+
+### How to use
+
+```sh
+npm install -g create-react-app
+
+create-react-app my-app --scripts-version react-scripts-appier
+cd my-app/
+npm start
+
+```
+
 ## tl;dr
 
 ```sh
