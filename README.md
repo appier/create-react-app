@@ -15,11 +15,11 @@ Create React apps with no build configuration.
 * [x] [CSS modules](https://github.com/css-modules/css-modules). (along with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
 * [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
 
-### Included Libraries 
+### Included Libraries
 * [x] [Redux](https://github.com/reactjs/redux)
 * [x] [Redux Thunk](https://github.com/gaearon/redux-thunk)
 * [x] [React Router](https://github.com/reactjs/react-router)
-* [x] [React Router Redux](https://github.com/reactjs/react-router-redux) 
+* [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
 * [x] [Immutable](https://github.com/facebook/immutable-js)
 
 ### How to use
@@ -110,7 +110,7 @@ You will see the build errors and lint warnings in the console.
 
 ### `npm test`
 
-Runs the test watcher in an interactive mode.  
+Runs the test watcher in an interactive mode.
 By default, runs tests related to files changes since the last commit.
 
 [Read more about testing.](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
@@ -227,7 +227,7 @@ We are grateful to the authors of existing related projects for their ideas and 
 
 ## Alternatives
 
-If you don’t agree with the choices made in this project, you might want to explore alternatives with different tradeoffs.  
+If you don’t agree with the choices made in this project, you might want to explore alternatives with different tradeoffs.
 Some of the more popular and actively maintained ones are:
 
 * [insin/nwb](https://github.com/insin/nwb)
