@@ -94,7 +94,9 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      // Fix `react-hot-loader` is missing in the project directory
+      'react-hot-loader': require.resolve('react-hot-loader')
     }
   },
   // @remove-on-eject-begin
@@ -150,7 +152,7 @@ module.exports = {
         // Webpack 1.x uses Uglify plugin as a signal to minify *all* the assets
         // including CSS. This is confusing and will be removed in Webpack 2:
         // https://github.com/webpack/webpack/issues/283
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&-autoprefixer!postcss')
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&-autoprefixer&modules!postcss')
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify

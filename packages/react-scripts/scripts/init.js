@@ -64,8 +64,17 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   // TODO: having to do two npm installs is bad, can we avoid it?
   var args = [
     'install',
+    'classnames',
+    'immutable',
     'react',
     'react-dom',
+    'react-redux',
+    'react-router',
+    'react-router-redux',
+    'redux',
+    'redux-devtools-extension',
+    'redux-duck',
+    'redux-thunk',
     '--save',
     verbose && '--verbose'
   ].filter(function(e) { return e; });
