@@ -10,6 +10,7 @@ Create React apps with no build configuration.
 [![npm](https://img.shields.io/npm/v/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
 [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
 [![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![license](https://img.shields.io/github/license/appier/create-react-app.svg)](https://github.com/appier/create-react-app)
 
 ### Enabled Tools
 * [x] [CSS modules](https://github.com/css-modules/css-modules). (along with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
@@ -31,6 +32,38 @@ create-react-app my-app --scripts-version react-scripts-appier
 cd my-app/
 npm start
 
+```
+
+### Project's package.json
+
+```javasscript
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts-appier": "0.7.0-1.0.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.6",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^1.0.0",
+    "redux-duck": "^1.0.1",
+    "redux-thunk": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
 ```
 
 ## tl;dr
