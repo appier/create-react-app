@@ -13,11 +13,11 @@ export class App extends PureComponent {
   render() {
     return (
       <div className={cx('App')}>
-        <div className={cx('App-header')}>
-          <img src={logo} className={cx('App-logo')} alt="logo" />
+        <div className={cx('header')}>
+          <img src={logo} className={cx('logo')} alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className={cx('App-intro')}>
+        <p className={cx('intro')}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <code>

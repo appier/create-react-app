@@ -11,6 +11,7 @@
 
 var path = require('path');
 var autoprefixer = require('autoprefixer');
+var postcssNested = require('postcss-nested');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -185,6 +186,7 @@ module.exports = {
           'not ie < 9', // React doesn't support IE8 anyway
         ]
       }),
+      postcssNested,
     ];
   },
   plugins: [
