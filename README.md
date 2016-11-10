@@ -9,7 +9,7 @@ Create React apps with no build configuration.
 
 https://react-scripts-appier.surge.sh
 
-Sorce code are located in [example-app](example-app/) folder.
+Source code are located in [example-app](example-app/) folder.
 
 ## Customization
 [![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
