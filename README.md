@@ -18,6 +18,7 @@ https://react-scripts-appier.surge.sh
 
 ### Enabled Tools
 * [x] [CSS modules](https://github.com/css-modules/css-modules). (along with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
+  * [x] [PostCSS Nested](https://github.com/postcss/postcss-nested)
 * [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
 
 ### Included Libraries
