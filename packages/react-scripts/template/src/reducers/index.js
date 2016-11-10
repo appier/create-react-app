@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
-import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux';
 import auth from './auth';
 import middleware from '../middleware/';
 
