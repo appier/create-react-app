@@ -9,6 +9,8 @@ Create React apps with no build configuration.
 
 https://react-scripts-appier.surge.sh
 
+Sorce code are located in [example-app](example-app/) folder.
+
 ## Customization
 [![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
 [![npm](https://img.shields.io/npm/v/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
@@ -37,38 +39,6 @@ create-react-app my-app --scripts-version react-scripts-appier
 cd my-app/
 npm start
 
-```
-
-### Project's package.json
-
-```javasscript
-{
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "react-scripts-appier": "0.7.0-1.0.0"
-  },
-  "dependencies": {
-    "classnames": "^2.2.5",
-    "immutable": "^3.8.1",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
-    "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.6",
-    "redux": "^3.6.0",
-    "redux-devtools-extension": "^1.0.0",
-    "redux-duck": "^1.0.1",
-    "redux-thunk": "^2.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
 ```
 
 ## tl;dr
