@@ -165,7 +165,7 @@ function build(previousSizeMap) {
       console.log('To publish it at ' + chalk.green(homepagePath) + ', run:');
       console.log();
       if (useYarn) {
-        console.log('  ' + chalk.cyan('yarn') +  ' add gh-pages');
+        console.log('  ' + chalk.cyan('yarn') +  ' add --dev gh-pages');
       } else {
         console.log('  ' + chalk.cyan('npm') +  ' install --save-dev gh-pages');
       }
@@ -175,7 +175,7 @@ function build(previousSizeMap) {
       console.log('    ' + chalk.dim('// ...'));
       console.log('    ' + chalk.yellow('"scripts"') + ': {');
       console.log('      ' + chalk.dim('// ...'));
-      console.log('      ' + chalk.yellow('"deploy"') + ': ' + chalk.yellow('"gh-pages -d build"'));
+      console.log('      ' + chalk.yellow('"deploy"') + ': ' + chalk.yellow('"npm run build&&gh-pages -d build"'));
       console.log('    }');
       console.log();
       console.log('Then run:');
