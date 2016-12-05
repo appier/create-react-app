@@ -42,7 +42,9 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Continuous Integration](#continuous-integration)
   - [Disabling jsdom](#disabling-jsdom)
   - [Experimental Snapshot Testing](#experimental-snapshot-testing)
+  - [Editor Integration](#editor-integration)
 - [Developing Components in Isolation](#developing-components-in-isolation)
+- [Making a Progressive Web App](#making-a-progressive-web-app)
 - [Deployment](#deployment)
   - [Building for Relative Paths](#building-for-relative-paths)
   - [GitHub Pages](#github-pages)
@@ -52,6 +54,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Now](#now)
   - [S3 and CloudFront](#s3-and-cloudfront)
   - [Surge](#surge)
+- [Troubleshooting](#troubleshooting)
 - [Something Missing?](#something-missing)
 
 ## Updating to New Releases
@@ -807,7 +810,11 @@ Note that tests run much slower with coverage so it is recommended to run it sep
 
 ### Continuous Integration
 
-By default `npm test` runs the watcher with interactive CLI. However, you can force it to run tests once and finish the process by setting an environment variable called `CI`. Popular CI servers already set it by default but you can do this yourself too:
+By default `npm test` runs the watcher with interactive CLI. However, you can force it to run tests once and finish the process by setting an environment variable called `CI`.
+
+When creating a build of your application with `npm run build` linter warnings are not checked by default. Like `npm test`, you can force the build to perform a linter warning check by setting the environment variable `CI`. If any warnings are encountered then the build fails.
+
+Popular CI servers already set the environment variable `CI` by default but you can do this yourself too:
 
 ### On CI servers
 #### Travis CI
@@ -824,6 +831,7 @@ cache:
     - node_modules
 script:
   - npm test
+  - npm run build
 ```
 1. Trigger your first build with a git push.
 1. [Customize your Travis CI Build](https://docs.travis-ci.com/user/customizing-the-build/) if needed.
@@ -835,6 +843,10 @@ script:
 set CI=true&&npm test
 ```
 
+```cmd
+set CI=true&&npm run build
+```
+
 (Note: the lack of whitespace is intentional.)
 
 ##### Linux, OS X (Bash)
@@ -843,9 +855,15 @@ set CI=true&&npm test
 CI=true npm test
 ```
 
-This way Jest will run tests once instead of launching the watcher.
+```bash
+CI=true npm run build
+```
 
-If you find yourself doing this often in development, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new) to tell us about your use case because we want to make watcher the best experience and are open to changing how it works to accommodate more workflows.
+The test command will force Jest to run tests once instead of launching the watcher.
+
+>  If you find yourself doing this often in development, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new) to tell us about your use case because we want to make watcher the best experience and are open to changing how it works to accommodate more workflows.
+
+The build command will check for linter warnings and fail if any are found.
 
 ### Disabling jsdom
 
@@ -879,6 +897,12 @@ Finally, jsdom is also not needed for [snapshot testing](http://facebook.github.
 Snapshot testing is a new feature of Jest that automatically generates text snapshots of your components and saves them on the disk so if the UI output changes, you get notified without manually writing any assertions on the component output.
 
 This feature is experimental and still [has major usage issues](https://github.com/facebookincubator/create-react-app/issues/372) so we only encourage you to use it if you like experimental technology. We intend to gradually improve it over time and eventually offer it as the default solution for testing React components, but this will take time. [Read more about snapshot testing.](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
+
+### Editor Integration
+
+If you use [Visual Studio Code](https://code.visualstudio.com), there is a [Jest extension](https://github.com/orta/vscode-jest) which works with Create React App out of the box. This provides a lot of IDE-like features while using a text editor: showing the status of a test run with potential fail messages inline, starting and stopping the watcher automatically, and offering one-click snapshot updates. 
+
+![VS Code Jest Preview](https://cloud.githubusercontent.com/assets/49038/20795349/a032308a-b7c8-11e6-9b34-7eeac781003f.png)
 
 ## Developing Components in Isolation
 
@@ -919,6 +943,10 @@ Learn more about React Storybook:
 * [GitHub Repo](https://github.com/kadirahq/react-storybook)
 * [Documentation](https://getstorybook.io/docs)
 * [Snapshot Testing](https://github.com/kadirahq/storyshots) with React Storybook
+
+## Making a Progressive Web App
+
+You can turn your React app into a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) by following the steps in [this repository](https://github.com/jeffposnick/create-react-pwa).
 
 ## Deployment
 
@@ -1063,6 +1091,32 @@ Install the Surge CLI if you haven't already by running `npm install -g surge`. 
 ```
 
 Note that in order to support routers that use HTML5 `pushState` API, you may want to rename the `index.html` in your build folder to `200.html` before deploying to Surge. This [ensures that every URL falls back to that file](https://surge.sh/help/adding-a-200-page-for-client-side-routing).
+
+## Troubleshooting
+
+### `npm test` hangs on macOS Sierra
+
+If you run `npm test` and the console gets stuck after printing `react-scripts test --env=jsdom` to the console there might be a problem with your [Watchman](https://facebook.github.io/watchman/) installation as described in [facebookincubator/create-react-app#713](https://github.com/facebookincubator/create-react-app/issues/713).
+
+We recommend deleting `node_modules` in your project and running `npm install` (or `yarn` if you use it) first. If it doesn't help, you can try one of the numerous workarounds mentioned in these issues:
+
+* [facebook/jest#1767](https://github.com/facebook/jest/issues/1767)
+* [facebook/watchman#358](https://github.com/facebook/watchman/issues/358)
+* [ember-cli/ember-cli#6259](https://github.com/ember-cli/ember-cli/issues/6259)
+
+It is reported that installing Watchman 4.7.0 or newer fixes the issue. If you use [Homebrew](http://brew.sh/), you can run these commands to update it:
+
+```
+watchman shutdown-server
+brew update
+brew reinstall watchman
+```
+
+You can find [other installation methods](https://facebook.github.io/watchman/docs/install.html#build-install) on the Watchman documentation page.
+
+If this still doesn't help, try running `launchctl unload -F ~/Library/LaunchAgents/com.github.facebook.watchman.plist`.
+
+There are also reports that *uninstalling* Watchman fixes the issue. So if nothing else helps, remove it from your system and try again.
 
 ## Something Missing?
 
