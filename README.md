@@ -7,6 +7,8 @@ Create React apps with no build configuration.
 
 ## Example Site
 
+CRA version: `0.8.2`
+
 https://react-scripts-appier.surge.sh
 
 Source code are located in [example-app](example-app/) folder.
