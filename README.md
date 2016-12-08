@@ -15,7 +15,7 @@ Source code are located in [example-app](example-app/) folder.
 [![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
 [![npm](https://img.shields.io/npm/v/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
 [![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
-[![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
 [![license](https://img.shields.io/github/license/appier/create-react-app.svg)](https://github.com/appier/create-react-app)
 
 ### Enabled Tools
