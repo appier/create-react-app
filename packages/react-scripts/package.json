@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-appier",
-  "version": "2.0.0-0.8.2",
+  "version": "0.8.3",
   "description": "Configuration and scripts for Create React App.",
   "repository": "appier/create-react-app",
   "license": "BSD-3-Clause",
@@ -66,7 +66,7 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
-    "webpack-subresource-integrity": "0.7.0",
+    "webpack-subresource-integrity": "0.8.1",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
