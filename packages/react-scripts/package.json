@@ -25,7 +25,7 @@
   "dependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
-    "babel-eslint": "7.0.0",
+    "babel-eslint": "7.1.1",
     "babel-jest": "17.0.2",
     "babel-loader": "6.2.7",
     "babel-preset-react-app": "^2.0.1",
@@ -57,7 +57,7 @@
     "postcss-loader": "1.0.0",
     "postcss-nested": "^1.0.0",
     "promise": "7.1.1",
-    "react-dev-utils": "^0.4.1",
+    "react-dev-utils": "^0.4.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "recursive-readdir": "2.1.0",
     "strip-ansi": "3.0.1",
@@ -66,7 +66,6 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
-    "webpack-subresource-integrity": "0.8.1",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
