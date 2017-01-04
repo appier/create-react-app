@@ -7,7 +7,7 @@ Create React apps with no build configuration.
 
 ## Example Site
 
-CRA version: `0.8.3`
+CRA version: `2.0.1-0.8.4`
 
 https://react-scripts-appier.surge.sh
 
