@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts-appier": "2.0.1-0.8.5"
+    "react-scripts-appier": "2.0.1-0.8.5",
+    "@kadira/storybook": "^2.21.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -22,6 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }
