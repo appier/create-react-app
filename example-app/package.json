@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
-    "react-scripts-appier": "2.0.2-0.8.5"
+    "react-scripts-appier": "2.0.3-0.8.5"
   },
   "dependencies": {
     "classnames": "^2.2.5",
