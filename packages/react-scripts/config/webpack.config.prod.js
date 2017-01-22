@@ -13,6 +13,7 @@ var autoprefixer = require('autoprefixer');
 var postcssNested = require('postcss-nested');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -258,17 +259,20 @@ module.exports = {
     // Try to dedupe duplicated modules, if any:
     new webpack.optimize.DedupePlugin(),
     // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false
-      },
-      mangle: {
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
+    new WebpackParallelUglifyPlugin({
+      cacheDir: path.resolve(paths.appBuild, '..', '.uglify-cache'),
+      uglifyJS: {
+        compress: {
+          screw_ie8: true, // React doesn't support IE8
+          warnings: false
+        },
+        mangle: {
+          screw_ie8: true
+        },
+        output: {
+          comments: false,
+          screw_ie8: true
+        }
       }
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
