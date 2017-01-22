@@ -21,9 +21,10 @@ Source code are located in [example-app](example-app/) folder.
 [![license](https://img.shields.io/github/license/appier/create-react-app.svg)](https://github.com/appier/create-react-app)
 
 ### Enabled Tools
-* [x] [CSS modules](https://github.com/css-modules/css-modules). (along with [classnames bind](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules))
-  * [x] [PostCSS Nested](https://github.com/postcss/postcss-nested)
-* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6`
+* [x] [CSS modules](https://github.com/css-modules/css-modules) - A CSS file in which all class names and animation names are scoped locally by default.
+  * [x] [PostCSS Nested](https://github.com/postcss/postcss-nested) - Unwrap nested rules like how Sass does it.
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6` - Tweak React components in real time.
+* [x] [webpack-parallel-uglify-plugin](https://github.com/gdborton/webpack-parallel-uglify-plugin) - A webpack plugin to run uglifyjs in parallel.
 
 ### Included Libraries
 * [x] [Redux](https://github.com/reactjs/redux)
@@ -31,6 +32,7 @@ Source code are located in [example-app](example-app/) folder.
 * [x] [React Router](https://github.com/reactjs/react-router)
 * [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
 * [x] [Immutable](https://github.com/facebook/immutable-js)
+* [x] [classnames](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules)
 
 ### How to use
 
