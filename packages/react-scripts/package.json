@@ -1,6 +1,6 @@
 {
   "name": "react-scripts",
-  "version": "3.0.0-0.9.0",
+  "version": "3.0.0-0.9.0-beta.1",
   "description": "Configuration and scripts for Create React App.",
   "repository": "appier/create-react-app",
   "license": "BSD-3-Clause",
