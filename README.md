@@ -23,6 +23,7 @@ Source code are located in [example-app](example-app/) folder.
 ### Enabled Tools
 * [x] [CSS modules](https://github.com/css-modules/css-modules) - A CSS file in which all class names and animation names are scoped locally by default.
   * [x] [PostCSS Nested](https://github.com/postcss/postcss-nested) - Unwrap nested rules like how Sass does it.
+  * [x] [PostCSS Simple Variables](https://github.com/postcss/postcss-simple-vars) - PostCSS plugin for Sass-like variables.
 * [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6` - Tweak React components in real time.
 * [x] [webpack-parallel-uglify-plugin](https://github.com/gdborton/webpack-parallel-uglify-plugin) - A webpack plugin to run uglifyjs in parallel.
 

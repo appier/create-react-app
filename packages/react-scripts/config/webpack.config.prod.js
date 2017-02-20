@@ -11,6 +11,7 @@
 
 var autoprefixer = require('autoprefixer');
 var postcssNested = require('postcss-nested');
+var postcssSimpleVars = require('postcss-simple-vars');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
@@ -224,6 +225,7 @@ module.exports = {
         ]
       }),
       postcssNested,
+      postcssSimpleVars,
     ];
   },
   plugins: [
