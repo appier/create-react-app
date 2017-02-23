@@ -12,6 +12,7 @@
 var autoprefixer = require('autoprefixer');
 var postcssNested = require('postcss-nested');
 var postcssSimpleVars = require('postcss-simple-vars');
+var postcssModulesValues = require('postcss-modules-values');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -209,6 +210,7 @@ module.exports = {
       }),
       postcssNested,
       postcssSimpleVars,
+      postcssModulesValues,
     ];
   },
   plugins: [
