@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators, compose } from 'redux';
 import classnames from 'classnames/bind';
-import * as AuthActions from '../reducers/auth';
+import * as authActions from '../reducers/auth';
 import logo from '../assets/logo.svg';
 import style from './App.css';
 
@@ -39,7 +39,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      auth: bindActionCreators(AuthActions, dispatch),
+      auth: bindActionCreators(authActions, dispatch),
     },
   };
 }

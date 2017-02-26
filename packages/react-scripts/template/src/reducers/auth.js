@@ -4,44 +4,44 @@ import { fromJS } from 'immutable';
 /**
  * Duck
  */
-const auth = createDuck('auth', 'app-name');
+const duck = createDuck('auth', 'app-name');
 
 /**
  * Action types
  */
-const LOAD = auth.defineType('LOAD');
+const LOAD = duck.defineType('LOAD');
 
-const LOGIN = auth.defineType('LOGIN');
-const LOGIN_SUCCESS = auth.defineType('LOGIN_SUCCESS');
-const LOGIN_FAIL = auth.defineType('LOGIN_FAIL');
+const LOGIN = duck.defineType('LOGIN');
+const LOGIN_SUCCESS = duck.defineType('LOGIN_SUCCESS');
+const LOGIN_FAIL = duck.defineType('LOGIN_FAIL');
 
-const LOGOUT = auth.defineType('LOGOUT');
-const LOGOUT_SUCCESS = auth.defineType('LOGOUT_SUCCESS');
-const LOGOUT_FAIL = auth.defineType('LOGOUT_FAIL');
+const LOGOUT = duck.defineType('LOGOUT');
+const LOGOUT_SUCCESS = duck.defineType('LOGOUT_SUCCESS');
+const LOGOUT_FAIL = duck.defineType('LOGOUT_FAIL');
 
 /**
  * Action creators
  */
-export const load = auth.createAction(LOAD);
+export const load = duck.createAction(LOAD);
 export const login = () => dispatch => {
-  dispatch(auth.createAction(LOGIN)());
+  dispatch(duck.createAction(LOGIN)());
 
   setTimeout(() => {
     if (Math.random() > 0.5) {
-      dispatch(auth.createAction(LOGIN_SUCCESS)());
+      dispatch(duck.createAction(LOGIN_SUCCESS)());
     } else {
-      dispatch(auth.createAction(LOGIN_FAIL)());
+      dispatch(duck.createAction(LOGIN_FAIL)());
     }
   }, 1000);
 };
 export const logout = () => dispatch => {
-  dispatch(auth.createAction(LOGOUT)());
+  dispatch(duck.createAction(LOGOUT)());
 
   setTimeout(() => {
     if (Math.random() > 0.5) {
-      dispatch(auth.createAction(LOGOUT_SUCCESS)());
+      dispatch(duck.createAction(LOGOUT_SUCCESS)());
     } else {
-      dispatch(auth.createAction(LOGOUT_FAIL)());
+      dispatch(duck.createAction(LOGOUT_FAIL)());
     }
   }, 1000);
 };
@@ -54,7 +54,7 @@ const initialState = fromJS({
   loading: false,
 });
 
-const reducer = auth.createReducer({
+const reducer = duck.createReducer({
   [LOAD]: (state, action) => {
     return state
       .set('loaded', false)
