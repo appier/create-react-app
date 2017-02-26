@@ -1,4 +1,4 @@
-## 0.9.1 (February 25, 2017)
+## 0.9.2 (February 26, 2017)
 
 #### :nail_care: Enhancement
 
@@ -42,6 +42,9 @@
   * [#1585](https://github.com/facebookincubator/create-react-app/pull/1585) Ensure PORT environment variable is an integer. ([@matoilic](https://github.com/matoilic))
 
   * [#1628](https://github.com/facebookincubator/create-react-app/pull/1628) Show correct port for pushstate-server URL text. ([@mattccrampton](https://github.com/mattccrampton))
+
+  * [#1647](https://github.com/facebookincubator/create-react-app/pull/1647) Fix `npm test` on Windows ([@gaearon](https://github.com/gaearon))
+
 
 #### :memo: Documentation
 * User Guides
@@ -114,12 +117,14 @@
 - kiran ps ([kiranps](https://github.com/kiranps))
 - pd4d10 ([pd4d10](https://github.com/pd4d10))
 
-### Migrating from 0.9.0 to 0.9.1
+### Migrating from 0.9.0 to 0.9.2
+
+**Note:** 0.9.1 had known issues so you should skip it.
 
 Inside any created project that has not been ejected, run:
 
 ```
-npm install --save-dev --save-exact react-scripts@0.9.1
+npm install --save-dev --save-exact react-scripts@0.9.2
 ```
 
 You may also optionally update the global command-line utility for more efficient installs (thanks [@n3tr](https://github.com/n3tr)):
@@ -127,6 +132,10 @@ You may also optionally update the global command-line utility for more efficien
 ```
 npm install -g create-react-app@1.1.0
 ```
+
+## <s>0.9.1 (February 25, 2017)</s>
+
+This release has known issues and you should skip it. Update directly to 0.9.2 instead.
 
 ## 0.9.0 (February 11, 2017)
 
