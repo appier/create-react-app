@@ -39,6 +39,13 @@ function handle_exit {
   exit
 }
 
+# Check for the existence of one or more files.
+function exists {
+  for f in $*; do
+    test -e "$f"
+  done
+}
+
 function create_react_app {
   node "$temp_cli_path"/node_modules/create-react-app/index.js $*
 }
@@ -61,7 +68,7 @@ npm install
 if [ "$USE_YARN" = "yes" ]
 then
   # Install Yarn so that the test can use it to install packages.
-  npm install -g yarn@0.17.10 # TODO: remove version when https://github.com/yarnpkg/yarn/issues/2142 is fixed.
+  npm install -g yarn
   yarn cache clean
 fi
 
@@ -86,7 +93,7 @@ create_react_app --scripts-version=0.4.0 test-app-version-number
 cd test-app-version-number
 
 # Check corresponding scripts version is installed.
-test -e node_modules/react-scripts
+exists node_modules/react-scripts
 grep '"version": "0.4.0"' node_modules/react-scripts/package.json
 
 # ******************************************************************************
@@ -98,7 +105,7 @@ create_react_app --scripts-version=https://registry.npmjs.org/react-scripts/-/re
 cd test-app-tarball-url
 
 # Check corresponding scripts version is installed.
-test -e node_modules/react-scripts
+exists node_modules/react-scripts
 grep '"version": "0.4.0"' node_modules/react-scripts/package.json
 
 # ******************************************************************************
@@ -110,7 +117,33 @@ create_react_app --scripts-version=react-scripts-fork test-app-fork
 cd test-app-fork
 
 # Check corresponding scripts version is installed.
-test -e node_modules/react-scripts-fork
+exists node_modules/react-scripts-fork
+
+# ******************************************************************************
+# Test project folder is deleted on failing package installation
+# ******************************************************************************
+
+cd $temp_app_path
+# we will install a non-existing package to simulate a failed installataion.
+create_react_app --scripts-version=`date +%s` test-app-should-not-exist || true
+# confirm that the project folder was deleted
+test ! -d test-app-should-not-exist
+
+# ******************************************************************************
+# Test project folder is not deleted when creating app over existing folder
+# ******************************************************************************
+
+cd $temp_app_path
+mkdir test-app-should-remain
+echo '## Hello' > ./test-app-should-remain/README.md
+# we will install a non-existing package to simulate a failed installataion.
+create_react_app --scripts-version=`date +%s` test-app-should-remain || true
+# confirm the file exist
+test -e test-app-should-remain/README.md
+# confirm only README.md is the only file in the directory
+if [ "$(ls -1 ./test-app-should-remain | wc -l | tr -d '[:space:]')" != "1" ]; then
+  false
+fi
 
 # ******************************************************************************
 # Test nested folder path as the project name
