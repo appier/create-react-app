@@ -8,14 +8,6 @@ Create React apps with no build configuration.
 Create React App works on macOS, Windows, and Linux.<br>
 If something doesn’t work please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new).
 
-## Example Site
-
-CRA version: `3.0.0-0.9.0`
-
-https://react-scripts-appier.surge.sh
-
-Source code are located in [example-app](example-app/) folder.
-
 ## Customization
 [![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
 [![npm](https://img.shields.io/npm/v/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
