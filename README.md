@@ -8,12 +8,34 @@ Create React apps with no build configuration.
 Create React App works on macOS, Windows, and Linux.<br>
 If something doesn’t work please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new).
 
+## Customization
+[![Build Status](https://travis-ci.org/appier/create-react-app.svg?branch=develop)](https://travis-ci.org/appier/create-react-app)
+[![npm](https://img.shields.io/npm/v/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![npm](https://img.shields.io/npm/dm/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![npm](https://img.shields.io/npm/dt/react-scripts-appier.svg)](https://www.npmjs.com/package/react-scripts-appier)
+[![license](https://img.shields.io/github/license/appier/create-react-app.svg)](https://github.com/appier/create-react-app)
+
+### Enabled Tools
+* [x] [CSS modules](https://github.com/css-modules/css-modules) - A CSS file in which all class names and animation names are scoped locally by default.
+  * [x] [PostCSS Nested](https://github.com/postcss/postcss-nested) - Unwrap nested rules like how Sass does it.
+  * [x] [PostCSS Simple Variables](https://github.com/postcss/postcss-simple-vars) - PostCSS plugin for Sass-like variables.
+* [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader) `3.0.0-beta.6` - Tweak React components in real time.
+* [x] [webpack-parallel-uglify-plugin](https://github.com/gdborton/webpack-parallel-uglify-plugin) - A webpack plugin to run uglifyjs in parallel.
+
+### Included Libraries
+* [x] [Redux](https://github.com/reactjs/redux)
+* [x] [Redux Thunk](https://github.com/gaearon/redux-thunk)
+* [x] [React Router](https://github.com/reactjs/react-router)
+* [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
+* [x] [Immutable](https://github.com/facebook/immutable-js)
+* [x] [classnames](https://github.com/JedWatson/classnames#alternate-bind-version-for-css-modules)
+
 ## tl;dr
 
 ```sh
 npm install -g create-react-app
 
-create-react-app my-app
+create-react-app my-app --scripts-version react-scripts-appier
 cd my-app/
 npm start
 ```

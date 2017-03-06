@@ -11,6 +11,8 @@
 
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
+var postcssNested = require('postcss-nested');
+var postcssSimpleVars = require('postcss-simple-vars');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -57,6 +59,8 @@ module.exports = {
     require.resolve('react-dev-utils/webpackHotDevClient'),
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
+    // Enable React Hot Reload feature:
+    require.resolve('react-hot-loader/patch'),
     // Finally, this is your app's code:
     paths.appIndexJs
     // We include the app code last so that if there is a runtime error during
@@ -90,7 +94,9 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      // Fix `react-hot-loader` is missing in the project directory
+      'react-hot-loader': require.resolve('react-hot-loader')
     }
   },
   // @remove-on-eject-begin
@@ -157,7 +163,14 @@ module.exports = {
       // in development "style" loader enables hot editing of CSS.
       {
         test: /\.css$/,
+        include: paths.appNodeModules,
         loader: 'style!css?importLoaders=1!postcss'
+      },
+      // Enable CSS modules (only in application)
+      {
+        test: /\.css$/,
+        exclude: paths.appNodeModules,
+        loader: 'style!css?importLoaders=1&modules!postcss'
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -195,6 +208,8 @@ module.exports = {
           'not ie < 9', // React doesn't support IE8 anyway
         ]
       }),
+      postcssNested,
+      postcssSimpleVars
     ];
   },
   plugins: [

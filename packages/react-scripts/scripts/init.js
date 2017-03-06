@@ -79,6 +79,19 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
     ].filter(function(e) { return e; });
   }
   args.push('react', 'react-dom');
+  // Pre-install libraries
+  args.push(
+    'classnames',
+    'immutable',
+    'react-dom',
+    'react-redux',
+    'react-router',
+    'react-router-redux',
+    'redux',
+    'redux-devtools-extension',
+    'redux-duck',
+    'redux-thunk'
+  );
 
   // Install additional template dependencies, if present
   var templateDependenciesPath = path.join(appPath, '.template.dependencies.json');

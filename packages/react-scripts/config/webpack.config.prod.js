@@ -11,6 +11,9 @@
 
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
+var postcssNested = require('postcss-nested');
+var postcssSimpleVars = require('postcss-simple-vars');
+var WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
@@ -165,12 +168,23 @@ module.exports = {
       // in the main CSS file.
       {
         test: /\.css$/,
+        include: paths.appNodeModules,
         loader: ExtractTextPlugin.extract(
           'style',
           'css?importLoaders=1!postcss',
           extractTextPluginOptions
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      // Enable CSS modules (only in application)
+      {
+        test: /\.css$/,
+        exclude: paths.appNodeModules,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?importLoaders=1&modules!postcss',
+          extractTextPluginOptions
+        )
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -210,6 +224,8 @@ module.exports = {
           'not ie < 9', // React doesn't support IE8 anyway
         ]
       }),
+      postcssNested,
+      postcssSimpleVars
     ];
   },
   plugins: [
@@ -246,7 +262,8 @@ module.exports = {
     // Try to dedupe duplicated modules, if any:
     new webpack.optimize.DedupePlugin(),
     // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
+    new WebpackParallelUglifyPlugin({
+      cacheDir: path.resolve(paths.appBuild, '..', '.uglify-cache'),
       compress: {
         screw_ie8: true, // React doesn't support IE8
         warnings: false
