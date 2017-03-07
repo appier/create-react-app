@@ -6,6 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
+'use strict';
 
 var createJestConfig = require('../utils/createJestConfig');
 var fs = require('fs-extra');
@@ -88,8 +89,8 @@ prompt(
 
   var ownPackage = require(path.join(ownPath, 'package.json'));
   var appPackage = require(path.join(appPath, 'package.json'));
-  var babelConfig = JSON.parse(fs.readFileSync(path.join(ownPath, '.babelrc'), 'utf8'));
-  var eslintConfig = JSON.parse(fs.readFileSync(path.join(ownPath, '.eslintrc'), 'utf8'));
+  var babelConfig = JSON.parse(fs.readFileSync(path.join(ownPath, 'babelrc'), 'utf8'));
+  var eslintConfig = JSON.parse(fs.readFileSync(path.join(ownPath, 'eslintrc'), 'utf8'));
 
   console.log(cyan('Updating the dependencies'));
   var ownPackageName = ownPackage.name;
@@ -114,14 +115,17 @@ prompt(
   console.log(cyan('Updating the scripts'));
   delete appPackage.scripts['eject'];
   Object.keys(appPackage.scripts).forEach(function (key) {
-    appPackage.scripts[key] = appPackage.scripts[key]
-      .replace(/react-scripts (\w+)/g, 'node scripts/$1.js');
-    console.log(
-      '  Replacing ' +
-      cyan('"react-scripts ' + key + '"') +
-      ' with ' +
-      cyan('"node scripts/' + key + '.js"')
-    );
+    Object.keys(ownPackage.bin).forEach(function (binKey) {
+      var regex = new RegExp(binKey + ' (\\w+)', 'g');
+      appPackage.scripts[key] = appPackage.scripts[key]
+        .replace(regex, 'node scripts/$1.js');
+      console.log(
+        '  Replacing ' +
+        cyan('"' + binKey + ' ' + key + '"') +
+        ' with ' +
+        cyan('"node scripts/' + key + '.js"')
+      );
+    });
   });
 
   console.log();
@@ -148,13 +152,18 @@ prompt(
   );
   console.log();
 
-  try {
-    // remove react-scripts and react-scripts binaries from app node_modules
-    Object.keys(ownPackage.bin).forEach(function(binKey) {
-      fs.removeSync(path.join(appPath, 'node_modules', '.bin', binKey));
-    });
-    fs.removeSync(ownPath);
-  } catch(e) {}
+  // "Don't destroy what isn't ours"
+  if (ownPath.indexOf(appPath) === 0) {
+    try {
+      // remove react-scripts and react-scripts binaries from app node_modules
+      Object.keys(ownPackage.bin).forEach(function(binKey) {
+        fs.removeSync(path.join(appPath, 'node_modules', '.bin', binKey));
+      });
+      fs.removeSync(ownPath);
+    } catch(e) {
+      // It's not essential that this succeeds
+    }
+  }
 
   if (fs.existsSync(paths.yarnLockFile)) {
     console.log(cyan('Running yarn...'));
