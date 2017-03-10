@@ -81,14 +81,24 @@ if (env === 'test') {
   module.exports = {
     presets: [
       // Latest stable ECMAScript features
-      require.resolve('babel-preset-latest'),
+      [require.resolve('babel-preset-env'), {
+        targets: {
+          // React parses on ie 9, so we should too
+          ie: 9,
+          // We currently minify with uglify
+          // Remove after https://github.com/mishoo/UglifyJS2/issues/448
+          uglify: true
+        },
+        // Disable polyfill transforms
+        useBuiltIns: false
+      }],
       // JSX, Flow
       require.resolve('babel-preset-react')
     ],
     plugins: plugins.concat([
       // function* () { yield 42; yield 43; }
       [require.resolve('babel-plugin-transform-regenerator'), {
-        // Async functions are converted to generators by babel-preset-latest
+        // Async functions are converted to generators by babel-preset-env
         async: false
       }],
     ])
