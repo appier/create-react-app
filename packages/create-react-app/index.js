@@ -39,7 +39,6 @@
 'use strict';
 
 var chalk = require('chalk');
-var validateProjectName = require('validate-npm-package-name');
 
 var currentNodeVersion = process.versions.node;
 var semver = currentNodeVersion.split('.');
