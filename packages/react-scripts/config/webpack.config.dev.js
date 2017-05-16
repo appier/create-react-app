@@ -57,6 +57,8 @@ module.exports = {
     require.resolve('./polyfills'),
     // Errors should be considered fatal in development
     require.resolve('react-error-overlay'),
+    // Enable React Hot Loader
+    require.resolve('react-hot-loader/patch'),
     // Finally, this is your app's code:
     paths.appIndexJs,
     // We include the app code last so that if there is a runtime error during
@@ -118,6 +120,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
         use: [
+          'react-hot-loader/webpack',
           {
             options: {
               formatter: eslintFormatter,
