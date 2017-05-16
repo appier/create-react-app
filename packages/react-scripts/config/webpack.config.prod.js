@@ -193,7 +193,7 @@ module.exports = {
       // in the main CSS file.
       {
         test: /\.css$/,
-        include: paths.appNodeModules,
+        include: paths.appSrc,
         loader: ExtractTextPlugin.extract(
           Object.assign(
             {
@@ -235,7 +235,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: paths.appNodeModules,
+        exclude: paths.appSrc,
         loader: ExtractTextPlugin.extract(
           Object.assign(
             {

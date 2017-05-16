@@ -196,7 +196,7 @@ module.exports = {
       // in development "style" loader enables hot editing of CSS.
       {
         test: /\.css$/,
-        include: paths.appNodeModules,
+        include: paths.appSrc,
         use: [
           require.resolve('style-loader'),
           {
@@ -228,7 +228,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: paths.appNodeModules,
+        exclude: paths.appSrc,
         use: [
           require.resolve('style-loader'),
           {
