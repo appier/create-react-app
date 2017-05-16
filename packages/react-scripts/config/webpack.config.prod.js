@@ -309,8 +309,7 @@ module.exports = {
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
     // Minify the code.
-    new WebpackParallelUglifyPlugin({
-      cacheDir: path.resolve(paths.appBuild, '..', '.uglify-cache'),
+    new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
       },
