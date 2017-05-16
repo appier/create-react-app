@@ -17,8 +17,6 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
-('use strict');
-
 process.env.NODE_ENV = 'development';
 
 // Ensure environment variables are read.
