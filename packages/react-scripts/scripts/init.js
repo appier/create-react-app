@@ -97,28 +97,18 @@ module.exports = function(
 
   let command;
   let args;
+  let argsExtra;
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = ['add'];
+    args = (argsExtra = ['add']);
   } else {
     command = 'npm';
-    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
+    args = (argsExtra = ['install', '--save', verbose && '--verbose'].filter(
+      e => e
+    ));
   }
   args.push('react', 'react-dom');
-  // Pre-install libraries
-  args.push(
-    'classnames',
-    'immutable',
-    'react-dom',
-    'react-redux',
-    'react-router',
-    'react-router-redux',
-    'redux',
-    'redux-devtools-extension',
-    'redux-duck',
-    'redux-thunk'
-  );
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -147,6 +137,24 @@ module.exports = function(
       console.error(`\`${command} ${args.join(' ')}\` failed`);
       return;
     }
+  }
+
+  argsExtra.push(
+    'classnames',
+    'immutable',
+    'react-redux',
+    'react-router',
+    'react-router-redux',
+    'redux',
+    'redux-devtools-extension',
+    'redux-duck',
+    'redux-thunk'
+  );
+
+  const procExtra = spawn.sync(command, argsExtra, { stdio: 'inherit' });
+  if (procExtra.status !== 0) {
+    console.error(`\`${command} ${argsExtra.join(' ')}\` failed`);
+    return;
   }
 
   // Display the most elegant way to cd.
