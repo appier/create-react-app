@@ -26,24 +26,30 @@ export const load = duck.createAction(LOAD);
 export const login = () => dispatch => {
   dispatch(duck.createAction(LOGIN)());
 
-  setTimeout(() => {
-    if (Math.random() > 0.5) {
-      dispatch(duck.createAction(LOGIN_SUCCESS)());
-    } else {
-      dispatch(duck.createAction(LOGIN_FAIL)());
-    }
-  }, 1000);
+  setTimeout(
+    () => {
+      if (Math.random() > 0.5) {
+        dispatch(duck.createAction(LOGIN_SUCCESS)());
+      } else {
+        dispatch(duck.createAction(LOGIN_FAIL)());
+      }
+    },
+    1000
+  );
 };
 export const logout = () => dispatch => {
   dispatch(duck.createAction(LOGOUT)());
 
-  setTimeout(() => {
-    if (Math.random() > 0.5) {
-      dispatch(duck.createAction(LOGOUT_SUCCESS)());
-    } else {
-      dispatch(duck.createAction(LOGOUT_FAIL)());
-    }
-  }, 1000);
+  setTimeout(
+    () => {
+      if (Math.random() > 0.5) {
+        dispatch(duck.createAction(LOGOUT_SUCCESS)());
+      } else {
+        dispatch(duck.createAction(LOGOUT_FAIL)());
+      }
+    },
+    1000
+  );
 };
 
 /**
@@ -54,48 +60,31 @@ const initialState = fromJS({
   loading: false,
 });
 
-const reducer = duck.createReducer({
-  [LOAD]: (state, action) => {
-    return state
-      .set('loaded', false)
-      .set('loading', true)
+const reducer = duck.createReducer(
+  {
+    [LOAD]: (state, action) => {
+      return state.set('loaded', false).set('loading', true);
+    },
+    [LOGIN]: (state, action) => {
+      return state.set('loaded', false).set('loading', true);
+    },
+    [LOGIN_SUCCESS]: (state, action) => {
+      return state.set('loaded', true).set('loading', false);
+    },
+    [LOGIN_FAIL]: (state, action) => {
+      return state.set('loaded', true).set('loading', false);
+    },
+    [LOGOUT]: (state, action) => {
+      return state.set('loaded', false).set('loading', true);
+    },
+    [LOGOUT_SUCCESS]: (state, action) => {
+      return state.set('loaded', true).set('loading', false);
+    },
+    [LOGOUT_FAIL]: (state, action) => {
+      return state.set('loaded', true).set('loading', false);
+    },
   },
-
-  [LOGIN]: (state, action) => {
-    return state
-      .set('loaded', false)
-      .set('loading', true)
-  },
-
-  [LOGIN_SUCCESS]: (state, action) => {
-    return state
-      .set('loaded', true)
-      .set('loading', false);
-  },
-
-  [LOGIN_FAIL]: (state, action) => {
-    return state
-      .set('loaded', true)
-      .set('loading', false);
-  },
-
-  [LOGOUT]: (state, action) => {
-    return state
-      .set('loaded', false)
-      .set('loading', true)
-  },
-
-  [LOGOUT_SUCCESS]: (state, action) => {
-    return state
-      .set('loaded', true)
-      .set('loading', false);
-  },
-
-  [LOGOUT_FAIL]: (state, action) => {
-    return state
-      .set('loaded', true)
-      .set('loading', false);
-  },
-}, initialState);
+  initialState
+);
 
 export default reducer;

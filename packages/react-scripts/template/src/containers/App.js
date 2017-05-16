@@ -21,14 +21,18 @@ export class App extends PureComponent {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <code>
-          <a href="https://github.com/appier/create-react-app" target="_blank">
+          <a
+            href="https://github.com/appier/create-react-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Appier Edition.
           </a>
         </code>
       </div>
     );
   }
-};
+}
 
 function mapStateToProps(state) {
   return {
@@ -45,10 +49,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const enhanced = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   withRouter
 );
 export default enhanced(App);
