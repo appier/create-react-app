@@ -8,4 +8,24 @@ import Routes from './Routes';
 import createStore from './reducers/';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore();
+const history = syncHistoryWithStore(hashHistory, store);
+
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Provider store={store}>
+        <Component history={history} />
+      </Provider>
+    </AppContainer>,
+    document.getElementById('root')
+  );
+};
+
+render(Routes);
+
+if (module.hot) {
+  module.hot.accept('./Routes', () => {
+    render(Routes);
+  });
+}
