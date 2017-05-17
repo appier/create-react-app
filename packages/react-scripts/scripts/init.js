@@ -143,7 +143,7 @@ module.exports = function(
     'classnames',
     'immutable',
     'react-redux',
-    'react-router',
+    'react-router@^3',
     'react-router-redux',
     'redux',
     'redux-devtools-extension',
