@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import Routes from './Routes';
 import createStore from './reducers/';
+import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 const store = createStore();
@@ -23,6 +24,7 @@ const render = Component => {
 };
 
 render(Routes);
+registerServiceWorker();
 
 if (module.hot) {
   module.hot.accept('./Routes', () => {
