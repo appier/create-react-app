@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators, compose } from 'redux';
 import classnames from 'classnames/bind';
-import * as authActions from '../reducers/auth';
-import logo from '../assets/logo.svg';
+import * as authActions from 'reducers/auth';
+import logo from 'assets/logo.svg';
 import style from './App.css';
 
 const cx = classnames.bind(style);
