@@ -55,15 +55,6 @@ function checkDependencies {
    echo "There are extraneous dependencies in package.json"
    exit 1
   fi
-
-
-  if ! awk '/"devDependencies": {/{y=1;next}/},/{y=0; next}y' package.json | \
-  grep -v -q -E '^\s*"react(-dom|-scripts)?"'; then
-   echo "Dev Dependencies are correct"
-  else
-   echo "There are extraneous devDependencies in package.json"
-   exit 1
-  fi
 }
 
 function create_react_app {
@@ -82,6 +73,30 @@ set -x
 # Go to root
 cd ..
 root_path=$PWD
+
+# Clear cache to avoid issues with incorrect packages being used
+if hash yarnpkg 2>/dev/null
+then
+  # AppVeyor uses an old version of yarn.
+  # Once updated to 0.24.3 or above, the workaround can be removed
+  # and replaced with `yarnpkg cache clean`
+  # Issues: 
+  #    https://github.com/yarnpkg/yarn/issues/2591
+  #    https://github.com/appveyor/ci/issues/1576
+  #    https://github.com/facebookincubator/create-react-app/pull/2400
+  # When removing workaround, you may run into
+  #    https://github.com/facebookincubator/create-react-app/issues/2030
+  case "$(uname -s)" in
+    *CYGWIN*|MSYS*|MINGW*) yarn=yarn.cmd;;
+    *) yarn=yarnpkg;;
+  esac
+  $yarn cache clean
+fi
+
+if hash npm 2>/dev/null
+then
+  npm cache clean
+fi
 
 # Prevent lerna bootstrap, we only want top-level dependencies
 cp package.json package.json.bak
