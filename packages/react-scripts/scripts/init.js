@@ -28,11 +28,8 @@ module.exports = function(
   originalDirectory,
   template
 ) {
-  const ownPackageName = require(path.join(
-    __dirname,
-    '..',
-    'package.json'
-  )).name;
+  const ownPackageName = require(path.join(__dirname, '..', 'package.json'))
+    .name;
   const ownPath = path.join(appPath, 'node_modules', ownPackageName);
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
@@ -100,12 +97,12 @@ module.exports = function(
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = (argsExtra = ['add']);
+    args = argsExtra = ['add'];
   } else {
     command = 'npm';
-    args = (argsExtra = ['install', '--save', verbose && '--verbose'].filter(
+    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(
       e => e
-    ));
+    );
   }
   args.push('react', 'react-dom');
 
@@ -140,12 +137,12 @@ module.exports = function(
 
   argsExtra.push(
     'classnames',
+    'history',
     'immutable',
     'react-redux',
-    'react-router@^3',
-    'react-router-redux',
+    'react-router-dom',
+    'react-router-redux@next',
     'redux',
-    'redux-devtools-extension',
     'redux-duck',
     'redux-thunk'
   );
@@ -213,6 +210,8 @@ module.exports = function(
 function isReactInstalled(appPackage) {
   const dependencies = appPackage.dependencies || {};
 
-  return typeof dependencies.react !== 'undefined' &&
-    typeof dependencies['react-dom'] !== 'undefined';
+  return (
+    typeof dependencies.react !== 'undefined' &&
+    typeof dependencies['react-dom'] !== 'undefined'
+  );
 }
