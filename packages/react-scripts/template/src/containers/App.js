@@ -1,15 +1,12 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { bindActionCreators, compose } from 'redux';
 import classnames from 'classnames/bind';
-import * as authActions from 'reducers/auth';
 import logo from 'assets/logo.svg';
+import Demo from 'components/Demo';
 import style from './App.css';
 
 const cx = classnames.bind(style);
 
-export class App extends PureComponent {
+export default class App extends PureComponent {
   render() {
     return (
       <div className={cx('App')}>
@@ -28,28 +25,9 @@ export class App extends PureComponent {
           >
             Appier Edition.
           </a>
+          <Demo data={this.props.auth} />
         </code>
       </div>
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    auth: state.auth,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      auth: bindActionCreators(authActions, dispatch),
-    },
-  };
-}
-
-const enhanced = compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  withRouter
-);
-export default enhanced(App);

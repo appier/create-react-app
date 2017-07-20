@@ -1,8 +1,7 @@
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
-import { hashHistory } from 'react-router';
+import history from 'store/history';
 
-const router = routerMiddleware(hashHistory);
-const middlerwares = [thunk, router];
+const router = routerMiddleware(history);
 
-export default middlerwares;
+export default [thunk, router];

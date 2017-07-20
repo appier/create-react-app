@@ -1,33 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hashHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
-import Routes from './Routes';
-import createStore from './reducers/';
+import App from 'containers/App';
+import createStore from 'store/';
+import history from 'store/history';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
+const rootElement = document.getElementById('root');
 const store = createStore();
-const history = syncHistoryWithStore(hashHistory, store);
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <Component history={history} />
+        <ConnectedRouter history={history}>
+          <Component />
+        </ConnectedRouter>
       </Provider>
     </AppContainer>,
-    document.getElementById('root')
+    rootElement
   );
 };
 
-render(Routes);
+render(App);
 registerServiceWorker();
 
 if (module.hot) {
-  module.hot.accept('./Routes', () => {
-    render(Routes);
+  module.hot.accept('containers/App', () => {
+    render(App);
   });
 }
