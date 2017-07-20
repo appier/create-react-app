@@ -11,14 +11,11 @@ class Demo extends PureComponent {
     this.props.login();
   }
   render() {
-    const { loading, test } = this.props;
+    const { loading } = this.props;
 
     return (
       <p>
-        <i>{test}</i>
         {loading && <i>Loading...</i>}
-        ---
-        <i>component03</i>
       </p>
     );
   }
@@ -27,7 +24,6 @@ class Demo extends PureComponent {
 export default connect(
   reducers => ({
     loading: reducers.auth.get('loading', false),
-    test: reducers.auth.get('test'),
   }),
   {
     login,
