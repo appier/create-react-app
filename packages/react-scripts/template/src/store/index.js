@@ -9,10 +9,7 @@ export default function configure(preloadedState) {
 
   if (module.hot) {
     module.hot.accept('reducers/', () => {
-      const nextRootReducer = require('reducers/').default;
-      console.log(Date.now(), 'store hot');
-
-      store.replaceReducer(nextRootReducer);
+      store.replaceReducer(rootReducers);
     });
   }
 

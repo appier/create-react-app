@@ -52,7 +52,7 @@
     "promise": "7.1.1",
     "react-dev-utils": "^3.0.2",
     "react-error-overlay": "^1.0.9",
-    "react-hot-loader": "3.0.0-beta.7",
+    "react-hot-loader": "next",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.3",
     "url-loader": "0.5.9",
@@ -69,7 +69,7 @@
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "^5.0.0-alpha.6",
+    "react-router-redux": "next",
     "redux": "^3.6.0",
     "redux-duck": "^1.0.2",
     "redux-thunk": "^2.2.0"
