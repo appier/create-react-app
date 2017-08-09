@@ -62,8 +62,17 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "classnames": "^2.2.5",
+    "history": "^4.6.3",
+    "immutable": "^3.8.1",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "next",
+    "redux": "^3.6.0",
+    "redux-duck": "^1.0.2",
+    "redux-thunk": "^2.2.0"
   },
   "optionalDependencies": {
     "fsevents": "1.1.2"
