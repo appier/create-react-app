@@ -8,7 +8,6 @@
 
 # production
 /build
-/.uglify-cache
 
 # misc
 .DS_Store
