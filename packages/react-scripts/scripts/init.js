@@ -93,13 +93,16 @@ module.exports = function(
 
   let command;
   let args;
+  let argsExtra;
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = ['add'];
+    args = argsExtra = ['add'];
   } else {
     command = 'npm';
-    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
+    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(
+      e => e
+    );
   }
   args.push('react', 'react-dom');
 
@@ -130,6 +133,27 @@ module.exports = function(
       console.error(`\`${command} ${args.join(' ')}\` failed`);
       return;
     }
+  }
+
+  argsExtra.push(
+    'classnames',
+    'history',
+    'immutable',
+    'react-redux',
+    'react-router-dom',
+    'react-router-redux@next',
+    'redux',
+    'redux-duck',
+    'redux-thunk'
+  );
+
+  console.log('Installing extra dependencies by react-script-appier');
+  console.log();
+
+  const procExtra = spawn.sync(command, argsExtra, { stdio: 'inherit' });
+  if (procExtra.status !== 0) {
+    console.error(`\`${command} ${argsExtra.join(' ')}\` failed`);
+    return;
   }
 
   // Display the most elegant way to cd.
