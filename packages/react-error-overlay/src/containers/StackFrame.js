@@ -169,9 +169,7 @@ class StackFrame extends Component<Props, State> {
     const canOpenInEditor = this.getEndpointUrl() !== null;
     return (
       <div>
-        <div>
-          {functionName}
-        </div>
+        <div>{functionName}</div>
         <div style={linkStyle}>
           <a
             style={canOpenInEditor ? anchorStyle : null}
@@ -182,7 +180,7 @@ class StackFrame extends Component<Props, State> {
             {url}
           </a>
         </div>
-        {codeBlockProps &&
+        {codeBlockProps && (
           <span>
             <a
               onClick={canOpenInEditor ? this.openInEditor : null}
@@ -193,7 +191,8 @@ class StackFrame extends Component<Props, State> {
             <button style={toggleStyle} onClick={this.toggleCompiled}>
               {'View ' + (compiled ? 'source' : 'compiled')}
             </button>
-          </span>}
+          </span>
+        )}
       </div>
     );
   }
