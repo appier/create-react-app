@@ -98,9 +98,7 @@ module.exports = function(
     args = argsExtra = ['add'];
   } else {
     command = 'npm';
-    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(
-      e => e
-    );
+    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push('react', 'react-dom');
 
