@@ -229,6 +229,8 @@ module.exports = {
                     options: {
                       importLoaders: 1,
                       modules: true,
+                      localIdentName:
+                        '[folder]_[name]__[local]--[hash:base64:5]',
                     },
                   },
                   {
