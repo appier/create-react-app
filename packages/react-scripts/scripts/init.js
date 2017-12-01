@@ -41,6 +41,8 @@ module.exports = function(
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
     eject: 'react-scripts eject',
+    // don't use yarn link, see: https://github.com/reasonml-community/reason-scripts/issues/20
+    prepare: 'npm link bs-platform',
   };
 
   fs.writeFileSync(
@@ -98,7 +100,9 @@ module.exports = function(
     args = argsExtra = ['add'];
   } else {
     command = 'npm';
-    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(e => e);
+    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(
+      e => e
+    );
   }
   args.push('react', 'react-dom');
 
@@ -117,6 +121,16 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
+  const linkProc = spawn.sync(command, ['link', 'bs-platform'], {
+    stdio: 'inherit',
+  });
+  if (linkProc.status !== 0) {
+    console.error(
+      `\`npm link bs-platform\` failed. Did you install bs-platform globally?`
+    );
+    return;
+  }
+
   // Install react and react-dom for backward compatibility with old CRA cli
   // which doesn't install react and react-dom along with react-scripts
   // or template is presetend (via --internal-testing-template)
@@ -132,6 +146,8 @@ module.exports = function(
   }
 
   argsExtra.push(
+    'reason-react',
+    'bs-jest',
     'classnames',
     'history',
     'immutable',
