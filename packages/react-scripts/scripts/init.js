@@ -121,7 +121,7 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
-  const linkProc = spawn.sync(command, ['link', 'bs-platform'], {
+  const linkProc = spawn.sync('npm', ['link', 'bs-platform'], {
     stdio: 'inherit',
   });
   if (linkProc.status !== 0) {
