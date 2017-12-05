@@ -1,8 +1,9 @@
 {
   "name": "react-scripts-appier",
-  "sources": [
-    "src"
-  ],
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
   "bs-dependencies": [
     "reason-react",
     "bs-jest"
