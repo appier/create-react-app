@@ -18,6 +18,15 @@ cd my-app/
 npm start
 ```
 
+For [yarn](https://yarnpkg.com/) user:
+
+```sh
+npm install -g bs-platform # Don't use yarn here
+yarn create react-app my-app --scripts-version react-scripts-appier
+cd my-app/
+yarn start
+```
+
 Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
 When you’re ready to deploy to production, create a minified bundle with `npm run build`.
 
