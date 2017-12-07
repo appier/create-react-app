@@ -2,7 +2,7 @@
   "name": "react-scripts-appier",
   "sources": {
     "dir": "src",
-    "subdirs": true
+    "subdirs": []
   },
   "bs-dependencies": [
     "reason-react",
