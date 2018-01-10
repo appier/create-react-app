@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { hot } from 'react-hot-loader';
 import classnames from 'classnames/bind';
 import logo from 'assets/logo.svg';
 import Demo from 'components/Demo';
@@ -6,7 +7,7 @@ import style from './App.css';
 
 const cx = classnames.bind(style);
 
-export default class App extends PureComponent {
+class App extends PureComponent {
   render() {
     return (
       <div className={cx('App')}>
@@ -31,3 +32,5 @@ export default class App extends PureComponent {
     );
   }
 }
+
+export default hot(module)(App);
