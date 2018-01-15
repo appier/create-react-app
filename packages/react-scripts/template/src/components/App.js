@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { hot } from 'react-hot-loader';
 import classnames from 'classnames/bind';
 import logo from 'assets/logo.svg';
-import Demo from 'components/Demo';
 import style from './App.css';
 
 const cx = classnames.bind(style);
@@ -26,7 +25,6 @@ class App extends PureComponent {
           >
             Appier Edition.
           </a>
-          <Demo data={this.props.auth} />
         </code>
       </div>
     );
