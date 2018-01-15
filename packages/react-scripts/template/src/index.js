@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import App from 'containers/App';
-import createStore from 'store/';
+import App from 'components/App';
+import configure from 'store';
 import history from 'store/history';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 const rootElement = document.getElementById('root');
-const store = createStore();
+const store = configure();
 
 const render = Component => {
   ReactDOM.render(

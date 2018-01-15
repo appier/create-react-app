@@ -1,14 +1,17 @@
 import { createStore, applyMiddleware } from 'redux';
-import rootReducers from 'reducers/';
-import middleware from 'middleware/';
+import thunk from 'redux-thunk';
+import { routerMiddleware } from 'react-router-redux';
+import rootReducers from 'ducks';
+import history from './history';
 
-const enhancer = applyMiddleware(...middleware);
+const router = routerMiddleware(history);
+const enhancer = applyMiddleware(thunk, router);
 
 export default function configure(preloadedState) {
   const store = createStore(rootReducers, preloadedState, enhancer);
 
   if (module.hot) {
-    module.hot.accept('reducers/', () => {
+    module.hot.accept('ducks/', () => {
       store.replaceReducer(rootReducers);
     });
   }
