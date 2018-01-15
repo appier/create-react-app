@@ -11,7 +11,7 @@ export default function configure(preloadedState) {
   const store = createStore(rootReducers, preloadedState, enhancer);
 
   if (module.hot) {
-    module.hot.accept('reducers/', () => {
+    module.hot.accept('ducks/', () => {
       store.replaceReducer(rootReducers);
     });
   }

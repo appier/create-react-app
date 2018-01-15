@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { login } from 'reducers/auth';
+import { login } from 'ducks/auth';
 
 class Demo extends PureComponent {
   static defaultProps = {
