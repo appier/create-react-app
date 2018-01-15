@@ -5,7 +5,7 @@ import rootReducers from 'ducks';
 import history from './history';
 
 const router = routerMiddleware(history);
-const enhancer = applyMiddleware([thunk, router]);
+const enhancer = applyMiddleware(thunk, router);
 
 export default function configure(preloadedState) {
   const store = createStore(rootReducers, preloadedState, enhancer);
