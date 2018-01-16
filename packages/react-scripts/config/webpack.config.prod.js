@@ -142,6 +142,7 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
+        exclude: /\.bs\.js$/,
         use: [
           {
             options: {
