@@ -11,7 +11,6 @@ If something doesn’t work, please [file an issue](https://github.com/facebooki
 ## Quick Overview
 
 ```sh
-npm install -g bs-platform # Don't use yarn here
 npx create-react-app my-app --scripts-version react-scripts-appier
 cd my-app
 npm start
