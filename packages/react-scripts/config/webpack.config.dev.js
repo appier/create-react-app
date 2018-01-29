@@ -45,6 +45,17 @@ const postCSSLoaderOptions = {
   ],
 };
 
+const postCSSLoaderOptionsCSSModule = {
+  ident: 'postcss',
+  plugins: () => [
+    require('postcss-flexbugs-fixes'),
+    autoprefixer({
+      flexbox: 'no-2009',
+    }),
+    require('postcss-nested'),
+  ],
+};
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -262,7 +273,7 @@ module.exports = {
               },
               {
                 loader: require.resolve('postcss-loader'),
-                options: postCSSLoaderOptions,
+                options: postCSSLoaderOptionsCSSModule,
               },
             ],
           },

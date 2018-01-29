@@ -70,6 +70,17 @@ const postCSSLoaderOptions = {
   ],
 };
 
+const postCSSLoaderOptionsCSSModule = {
+  ident: 'postcss',
+  plugins: () => [
+    require('postcss-flexbugs-fixes'),
+    autoprefixer({
+      flexbox: 'no-2009',
+    }),
+    require('postcss-nested'),
+  ],
+};
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -298,7 +309,7 @@ module.exports = {
                     },
                     {
                       loader: require.resolve('postcss-loader'),
-                      options: postCSSLoaderOptions,
+                      options: postCSSLoaderOptionsCSSModule,
                     },
                   ],
                 },
