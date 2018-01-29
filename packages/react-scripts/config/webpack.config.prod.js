@@ -166,6 +166,7 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
+        exclude: /\.bs\.js$/,
       },
       {
         // "oneOf" will traverse all following loaders until one will
