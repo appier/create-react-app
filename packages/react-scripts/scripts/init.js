@@ -74,6 +74,32 @@ function tryGitInit(appPath) {
   }
 }
 
+function installDependencies({ command, args }) {
+  let nextArgs = Array.from(args).filter(
+    arg => arg !== 'react' && arg !== 'react-dom'
+  );
+
+  nextArgs.push(
+    'history',
+    'immutable',
+    'react-redux',
+    'react-router-dom',
+    'react-router-redux@^5.0.0-alpha.9',
+    'redux',
+    'redux-duck',
+    'redux-thunk'
+  );
+
+  console.log(`Installing 3rd-party libraries using ${command}...`);
+  console.log();
+
+  const proc = spawn.sync(command, nextArgs, { stdio: 'inherit' });
+  if (proc.status !== 0) {
+    console.error(`\`${command} ${args.join(' ')}\` failed`);
+    return;
+  }
+}
+
 module.exports = function(
   appPath,
   appName,
@@ -147,16 +173,13 @@ module.exports = function(
 
   let command;
   let args;
-  let args3rd;
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = args3rd = ['add'];
+    args = ['add'];
   } else {
     command = 'npm';
-    args = args3rd = ['install', '--save', verbose && '--verbose'].filter(
-      e => e
-    );
+    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push('react', 'react-dom');
 
@@ -189,25 +212,8 @@ module.exports = function(
     }
   }
 
-  Array.prototype.push.apply(args3rd, [
-    'history',
-    'immutable',
-    'react-redux',
-    'react-router-dom',
-    'react-router-redux@^5.0.0-alpha.9',
-    'redux',
-    'redux-duck',
-    'redux-thunk',
-  ]);
-
-  console.log(`Installing 3rd-party libraries using ${command}...`);
-  console.log();
-
-  const proc = spawn.sync(command, args3rd, { stdio: 'inherit' });
-  if (proc.status !== 0) {
-    console.error(`\`${command} ${args.join(' ')}\` failed`);
-    return;
-  }
+  // Install 3rd-party dependencies
+  installDependencies({ command, args });
 
   if (tryGitInit(appPath)) {
     console.log();
