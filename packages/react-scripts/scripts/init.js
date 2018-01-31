@@ -41,6 +41,7 @@ module.exports = function(
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
     eject: 'react-scripts eject',
+    lint: 'eslint .',
   };
 
   fs.writeFileSync(
@@ -181,6 +182,9 @@ module.exports = function(
   console.log();
   console.log(chalk.cyan(`  ${displayedCommand} test`));
   console.log('    Starts the test runner.');
+  console.log();
+  console.log(chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}lint`));
+  console.log('    Displays lint error.');
   console.log();
   console.log(
     chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`)
