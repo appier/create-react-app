@@ -19,6 +19,32 @@ const path = require('path');
 const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
 
+function installDependencies({ command, args }) {
+  let nextArgs = Array.from(args).filter(
+    arg => arg !== 'react' && arg !== 'react-dom'
+  );
+
+  nextArgs.push(
+    'history',
+    'immutable',
+    'react-redux',
+    'react-router-dom',
+    'react-router-redux@^5.0.0-alpha.9',
+    'redux',
+    'redux-duck',
+    'redux-thunk'
+  );
+
+  console.log(`Installing 3rd-party libraries using ${command}...`);
+  console.log();
+
+  const proc = spawn.sync(command, nextArgs, { stdio: 'inherit' });
+  if (proc.status !== 0) {
+    console.error(`\`${command} ${args.join(' ')}\` failed`);
+    return;
+  }
+}
+
 module.exports = function(
   appPath,
   appName,
@@ -91,16 +117,13 @@ module.exports = function(
 
   let command;
   let args;
-  let argsExtra;
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = argsExtra = ['add'];
+    args = ['add'];
   } else {
     command = 'npm';
-    args = argsExtra = ['install', '--save', verbose && '--verbose'].filter(
-      e => e
-    );
+    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push('react', 'react-dom');
 
@@ -133,26 +156,8 @@ module.exports = function(
     }
   }
 
-  argsExtra.push(
-    'classnames',
-    'history',
-    'immutable',
-    'react-redux',
-    'react-router-dom',
-    'react-router-redux@next',
-    'redux',
-    'redux-duck',
-    'redux-thunk'
-  );
-
-  console.log('Installing extra dependencies by react-script-appier');
-  console.log();
-
-  const procExtra = spawn.sync(command, argsExtra, { stdio: 'inherit' });
-  if (procExtra.status !== 0) {
-    console.error(`\`${command} ${argsExtra.join(' ')}\` failed`);
-    return;
-  }
+  // Install 3rd-party dependencies
+  installDependencies({ command, args });
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
