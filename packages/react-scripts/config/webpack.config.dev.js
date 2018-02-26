@@ -205,7 +205,6 @@ module.exports = {
                   presets: [require.resolve('babel-preset-react-app')],
                   plugins: [
                     [
-                      require.resolve('react-hot-loader/babel'),
                       require.resolve('babel-plugin-named-asset-import'),
                       {
                         loaderMap: {
@@ -214,6 +213,7 @@ module.exports = {
                           },
                         },
                       },
+                      require.resolve('react-hot-loader/babel'),
                     ],
                   ],
                   // This is a feature of `babel-loader` for webpack (not Babel itself).
